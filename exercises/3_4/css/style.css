@@ -9,6 +9,15 @@ body{
     font-family: 'Titan One', cursive;
 }
 
+a{
+    text-decoration: none;
+    color: red;
+}
+
+nav a{
+    color: #F7F7F7;
+}
+
 article{
     margin-top: 30px;
 }
