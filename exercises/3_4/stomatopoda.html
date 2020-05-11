@@ -3,68 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
     <title>Conheça o Stomatopoda.</title>
   </head>
   <body>
-    <header>
-        <h1>Soco a 80km/h: Conheça o Stomatopoda.</h1>
+    <header id="home">
+      <h1>Soco a 80km/h: Conheça o Stomatopoda.</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Página Inicial</a></li>
+          <li><a href="#infos">Sobre</a></li>
+          <li><a href="#refs">Referências</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav>
-      <ul>
-        <li>Página Inicial</li>
-        <li>Sobre</li>
-        <li>Contato</li>
-      </ul>
-    </nav>
-    <article>
-      <section>
-        <h2>Informações Gerais</h2>
-        <section>
-          <img src="img/stomatopoda.jpeg" alt="Stomatopoda"/>
-        </section>
-        <section>
+    <div class="content">
+      <article class="card" style="width: 60%;">
+        <section id="infos">
+          <h2>Informações Gerais</h2>
+          <section>
+            <img class="portifolio" src="img/stomatopoda.jpeg" alt="Stomatopoda"/>
+          </section>
+          <section>
             <h3>Nome Científico</h3> 
-            <p style="font-style: italic;">Odontodactylus scyllarus</p>
-            <h3>Classificação</h3>
-            <ul>
-              <li>Reino - <span>Animalia</span></li>
-              <li>Filo - <span>Arthropoda</span></li>
-              <li>Subfilo - <span>Crustacea</span></li>
-              <li>Classe - <span>Malacostraca</span></li>
-              <li>Subclasse - <span>Hoplocarida</span></li>
-              <li>Ordem - <span>Hoplocarida</span></li>
-          </ul>
+            <p style="font-style: italic; text-align: center;">Odontodactylus scyllarus</p>
+          </section>
         </section>
-      </section>
-    </article>
-    <article>
-      <h2>Fatos Interessantes</h2>
-      <section>
-        <h3>Visão excepcional!</h3>
-        <img src="img/Sharingan.png" alt="Sharingan"/>
-        <p>
-          Este incrível animal é capaz de perceber 16 cores primárias! 
-          Ou seja, ao observar um arco-íris, o bichinho é capaz de ver não somente as 7 
-          cores que conhecemos, mas também outras 20.922.789.887.992 a mais! #OMG!
-        </p>
-      </section>
-      <section>
-        <h3>Beleza incomparável!</h3>
-        <img src="img/Pegasus.jpg" alt="Pegasus"/>
-        <p>
-          Sua carapaça é multi-colorida e furtacor! Além de ser brilhante e parecer uma armadura dos CDZ!
-        </p>
-      </section>
-      <section>
-        <h3>Boxeador campeão!</h3>
-        <img src="img/Pegasus.jpg" alt="Pegasus"/>
-        <p>
-          Suas incríveis habilidades não se limital à sua exuberante beleza! Este bichinho
-           incrível também é capaz de criar um impacto tão forte quanto um tiro de .22! 
-           Literalmente! Ao usar suas garras como um chicote, ele gera uma onda de choque 
-           tão violenta, que produz bolhas e até luz ao superaquecer a água! 
-        </p>
-      </section>
-    </article>
+      </article>
+
+      <aside>
+        Assista o bichinho em ação!<br/><br/><hr/>
+        <iframe width="auto" src="https://www.youtube.com/embed/E0Li1k5hGBE" frameborder="5" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <hr/>
+        <h3>Classificação</h3>
+
+        <table>
+          <tr>
+            <th>Reino</th>
+            <td>Animalia</td>
+          </tr>
+          <tr>
+            <th>Filo</th>
+            <td>Hoplocarida</td>
+          </tr>
+          <tr>
+            <th>Subfilo</th>
+            <td>Arthropoda</td>
+          </tr>
+          <tr>
+            <th>Classe</th>
+            <td>Crustacea</td>
+          </tr>
+          <tr>
+            <th>Subclasse</th>
+            <td>Malacostraca</td>
+          </tr>
+          <tr>
+            <th>Ordem</th>
+            <td>Hoplocarida</td>
+          </tr>
+        </table>
+
+      </aside>
+
+      <article id="facts" class="card" style="width: 85%;">
+        <h2>Fatos Interessantes</h2>
+        <section>
+          <h3>Visão excepcional!</h3>
+          <img class="icon" src="img/Sharingan.png" alt="Sharingan"/>
+          <p>
+            Este incrível animal é capaz de perceber 16 cores primárias! 
+            Ou seja, ao observar um arco-íris, o bichinho é capaz de ver não somente as 7 
+            cores que conhecemos, mas também outras 20.922.789.887.992 a mais! #OMG!
+          </p>
+        </section>
+        <section>
+          <h3>Beleza incomparável!</h3>
+          <p>
+            Sua carapaça é multi-colorida e furtacor! Além de ser brilhante e parecer uma armadura dos CDZ!
+          </p>
+          <img class="icon" src="img/Pegasus.jpg" alt="Pegasus"/>
+        </section>
+        <section>
+          <h3>Boxeador campeão!</h3>
+          <img class="icon" src="img/kamehameha.jpg" alt="Pegasus"/>
+          <p>
+            Suas incríveis habilidades não se limital à sua exuberante beleza! Este bichinho
+            incrível também é capaz de criar um impacto tão forte quanto um tiro de .22! 
+            Literalmente! Ao usar suas garras como um chicote, ele gera uma onda de choque 
+            tão violenta, que produz bolhas e até luz ao superaquecer a água! 
+          </p>
+        </section>
+      </article>
+      <article class="card" style="width: 85%;">
+        <h2>Referências Bibliográficas</h2>
+        <section id="refs">
+          <ul>
+            <li><a href="https://m.megacurioso.com.br/animais-sinistros/36141-mantis-conheca-a-lagosta-boxeadora-o-bicho-mais-desgracado-dos-mares-.htm" target="_blank">Mega Curioso</a></li>
+            <li><a href="https://theoatmeal.com/comics/mantis_shrimp" target="_blank">The Oatmeal</a></li>
+            <li><a href="https://pt.wikipedia.org/wiki/Stomatopoda" target="_blank">Wikipédia</a></li>
+            <li><a href="https://narutorpgonline.fandom.com/pt-br/wiki/Sharingan" target="_blank">Naruto RPG</a></li>
+            <li><a href="http://projetocdz.weebly.com/armaduras-de-bronze.html" target="_blank">Projeto CDZ</a></li>
+            <li><a href="https://dragonballagerpg.weebly.com/clubsteacutecnicas-de-variaccedilotildeesclubs.html" target="_blank">Dragonball Age RPG</a></li>
+          </ul> 
+        </section>
+      </article>
+    </div>
+    <footer>
+      <p>Conteúdo compilado por, <a href="#" target="_blank">LizzardMedeiros</a></p>
+    </footer>
   </body>
 </html>
