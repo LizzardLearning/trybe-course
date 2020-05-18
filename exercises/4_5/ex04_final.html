@@ -36,6 +36,8 @@
         <p>Texto padrão do nosso site</p>
         <p>-----</p>
         <p>Trybe</p>
+        <ul id="challenge">
+        </ul>
       </div>
     </div>
     <script>
@@ -74,6 +76,14 @@
         let printP = function(){
             let element = document.getElementsByTagName("p");
             for(el of element) console.log(el.innerHTML);
+        }
+        let createList = function(size){
+            let element = document.getElementById("challenge");
+            for(let i=0; i<size; i++){
+                let classe = (i%2 == 0) ? "par" : "impar";
+                if(i==size-1) classe = "par impar"
+                element.innerHTML += '<li class="' + classe + '">'+'Elemento '+i+'</li>';
+            }
         }
     </script>
   </body>
