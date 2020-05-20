@@ -15,7 +15,7 @@
     let timer = {};
     function walk(){
       let p = parseInt(img.style.left);
-      img.style.left = (p+10).toString()+"px";
+      img.style.left = (p >= window.innerWidth) ? "0px" : (p+10).toString()+"px";
       timer = setTimeout(walk, 50);
     }
     walk();
