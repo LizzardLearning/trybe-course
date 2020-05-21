@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+}
+
+nav {
+  height: 100px;
+  background-color: brown;
+  padding: 5px 60px;
+}
+
+.left-block, .right-block{
+  display: inline-block;
+}
+
+.left-block{
+  width: 30%;
+  float: left;
+}
+
+.right-block{
+  width: 70%;
+  float: right;
+  text-align: right;
+}
+
+nav ul{
+  padding-top: 35px;
+}
+
+.btn{
+  display: inline;
+  padding: 5px 20px;
+  border: solid white;
+}
+
+.btn{
+  color: white;
+  text-decoration: none;
+}
+
+.btn:hover{
+  color: black;
+  background-color: white;
+}
+
+img#icon{
+  padding-top: 15px;
+}
+
+section {
+  color: black;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 20px 50px;
+}
