@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet"/>
+    <title>Leitor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  </head>
+<body>
+  <header>
+    <nav>
+      <div class="left-block">
+        <img id="icon" src="icon.png" width="64px" alt="icon"/>
+      </div>
+
+      <div id="pallete" class="middle-block">
+      </div>
+
+      <div id="tools" class="hidden-block">
+        <div id="reduce" class="box">
+          <img src="reduce-font.png" alt="reduce" width="42px">
+        </div>
+        <div id="raise" class="box">
+          <img src="raise-font.png" alt="raise" width="42px">
+        </div>
+      </div>
+
+      <div class="right-block">
+        <ul>
+          <li id="font-color" class="btn">Font Color</li>
+          <li id="font-size" class="btn">Font Size</li>
+          <li id="font-mode" class="btn">Dark Mode</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <article>
+    <section>
+      <h1>Loren Ipsum</h1>
+      "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was 
+      born and I will give you a complete account of the system, and expound the actual teachings of the 
+      great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or 
+      avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue 
+      pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone 
+      who loves or pursues or desires to obtain pain of itself, because it is pain, but because 
+      occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take
+      a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some 
+      advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure 
+      that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+    </section>
+  </article>
+</body>
+<script>
+  window.onload = function() {
+    let buttons = document.getElementsByClassName("btn");
+    let middle_block = document.querySelector("nav .middle-block");
+
+    let pal = document.getElementById("pallete");
+    let tools = document.getElementById("tools");
+
+    let colors = {
+      darkblue : "darkblue",
+      lightblue : "lightblue",
+      yellow : "yellow",
+      pink : "pink",
+      white : "ivory",
+      black : "#212121"
+    };
+
+    for(color in colors){
+      let div = document.createElement("div");
+      let child = middle_block.appendChild(div);
+      child.className = "box";
+      child.style.backgroundColor = color;
+      child.addEventListener("click", function(element){
+        document.getElementsByTagName("section")[0].style.color = element.target.style.backgroundColor;
+      });
+    };
+
+    document.getElementById("reduce").addEventListener("click", function(){
+      let sz = document.querySelector("section").style.fontSize;
+      document.querySelector("section").style.fontSize = (parseInt(sz)-2 || 12).toString() + "px";
+    });
+
+    document.getElementById("raise").addEventListener("click", function(){
+      let sz = document.querySelector("section").style.fontSize;
+      document.querySelector("section").style.fontSize = (parseInt(sz)+2 || 18).toString() + "px";
+    });
+
+    for(button of buttons){
+      button.addEventListener("click", function(btn){
+        switch(btn.target.id){
+
+          case "font-color":
+            tools.className = "hidden-block";
+            if(pal.className === "middle-block") pal.className = "hidden-block";
+            else pal.className = "middle-block";
+            break;
+
+          case "font-size":
+            pal.className = "hidden-block";
+            if(tools.className === "middle-block") tools.className = "hidden-block";
+            else tools.className = "middle-block";
+            break;
+
+          case "font-mode":
+            let class_name = document.querySelector("body").className;
+            if(class_name == "black"){
+              document.querySelector("body").className = "white";
+              btn.target.innerHTML = "Dark Mode"            
+            } else {
+              document.querySelector("body").className = "black";
+              btn.target.innerHTML = "White Mode"
+            }
+            break;
+        }
+      });
+      button.addEventListener("mouseover", function(){
+
+      });
+    }
+  };
+
+</script>
+
+</html>
