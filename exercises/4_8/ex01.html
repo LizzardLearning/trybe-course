@@ -9,21 +9,35 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
   </head>
 <body>
+  <header>
+    <nav>
+      <div class="left-block">
+        <img id="icon" src="icon.png" width="64px" alt="icon"/>
+      </div>
+
+      <div id="pallete" class="middle-block">
+      </div>
+
+      <div id="tools" class="hidden-block">
+        <div id="reduce" class="box">
+          <img src="reduce-font.png" alt="reduce" width="42px">
+        </div>
+        <div id="raise" class="box">
+          <img src="raise-font.png" alt="raise" width="42px">
+        </div>
+      </div>
+
+      <div class="right-block">
+        <ul>
+          <li id="font-color" class="btn">Font Color</li>
+          <li id="font-size" class="btn">Font Size</li>
+          <li id="font-mode" class="btn">Dark Mode</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <article>
-    <header>
-      <nav>
-        <div class="left-block">
-          <img id="icon" src="icon.png" width="64px" alt="icon"/>
-        </div>
-        <div class="right-block">
-          <ul>
-            <li class="btn">Color</li>
-            <li class="btn">Select Size</li>
-            <li class="btn">Dark Mode</li>
-          </ul>
-        </div>
-      </nav>
-    </header>
     <section>
       <h1>Loren Ipsum</h1>
       "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was 
@@ -40,14 +54,75 @@
   </article>
 </body>
 <script>
-  let buttons = document.getElementsByClassName("btn");
-  for(button of buttons){
-    button.addEventListener("click", function(){
-      
+  window.onload = function() {
+    let buttons = document.getElementsByClassName("btn");
+    let middle_block = document.querySelector("nav .middle-block");
+
+    let pal = document.getElementById("pallete");
+    let tools = document.getElementById("tools");
+
+    let colors = {
+      darkblue : "darkblue",
+      lightblue : "lightblue",
+      yellow : "yellow",
+      pink : "pink",
+      white : "ivory",
+      black : "#212121"
+    };
+
+    for(color in colors){
+      let div = document.createElement("div");
+      let child = middle_block.appendChild(div);
+      child.className = "box";
+      child.style.backgroundColor = color;
+      child.addEventListener("click", function(element){
+        document.getElementsByTagName("section")[0].style.color = element.target.style.backgroundColor;
+      });
+    };
+
+    document.getElementById("reduce").addEventListener("click", function(){
+      let sz = document.querySelector("section").style.fontSize;
+      document.querySelector("section").style.fontSize = (parseInt(sz)-2 || 12).toString() + "px";
     });
-    button.addEventListener("mouseover", function(){
+
+    document.getElementById("raise").addEventListener("click", function(){
+      let sz = document.querySelector("section").style.fontSize;
+      document.querySelector("section").style.fontSize = (parseInt(sz)+2 || 18).toString() + "px";
     });
-  }
+
+    for(button of buttons){
+      button.addEventListener("click", function(btn){
+        switch(btn.target.id){
+
+          case "font-color":
+            tools.className = "hidden-block";
+            if(pal.className === "middle-block") pal.className = "hidden-block";
+            else pal.className = "middle-block";
+            break;
+
+          case "font-size":
+            pal.className = "hidden-block";
+            if(tools.className === "middle-block") tools.className = "hidden-block";
+            else tools.className = "middle-block";
+            break;
+
+          case "font-mode":
+            let class_name = document.querySelector("body").className;
+            if(class_name == "black"){
+              document.querySelector("body").className = "white";
+              btn.target.innerHTML = "Dark Mode"            
+            } else {
+              document.querySelector("body").className = "black";
+              btn.target.innerHTML = "White Mode"
+            }
+            break;
+        }
+      });
+      button.addEventListener("mouseover", function(){
+
+      });
+    }
+  };
 
 </script>
 

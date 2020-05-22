@@ -8,19 +8,28 @@ nav {
   padding: 5px 60px;
 }
 
-.left-block, .right-block{
+.left-block, .right-block, .middle-block{
   display: inline-block;
 }
 
 .left-block{
-  width: 30%;
+  width: 20%;
   float: left;
 }
 
+.middle-block{
+  width: 50%;
+  text-align: center;
+}
+
 .right-block{
-  width: 70%;
+  width: 30%;
   float: right;
   text-align: right;
+}
+
+.hidden-block{
+  display: none;
 }
 
 nav ul{
@@ -48,7 +57,25 @@ img#icon{
 }
 
 section {
-  color: black;
   font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 16px;
   padding: 20px 50px;
+}
+
+/*-----------------------------*/
+
+.box{
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: solid white;
+  margin: 20px 5px;
+}
+
+.white{
+  background-color: ivory;
+}
+
+.black{
+  background-color: #212121;
 }
