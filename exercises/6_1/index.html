@@ -8,21 +8,134 @@
 <body>
   <form action="">
     <fieldset>
-      <input type="text" maxlength="40" name="name" required/>
-      <input type="email" maxlength="50" name="email" required/>
-      <input type="text" maxlength="11" name="cpf" required/>
-
-      <input type="text" maxlength="200" name="address" required/>
-      <input type="text" maxlength="200" name="city" required/>
-      <select name="state" id="state-field" required>
-      </select>
-      <input type="radio" name="type" value="house"/>
-      <input type="radio" name="type" value="apartment"/>
+      <div>
+        <input type="text" id="name-input" maxlength="40" name="name" required/>
+        <label for="name-input">Nome</label>
+      </div>
+      <div>
+        <input type="email" id="email-input" maxlength="50" name="email" required/>
+        <label for="email-input">E-Mail</label>
+      </div>
+      <div>
+        <input type="text" id="cpf-input" maxlength="11" name="cpf" required/>
+        <label for="cpf-input">CPF</label>
+      </div>
     </fieldset>
     <fieldset>
-      
+      <div>
+        <input type="text" id="addr-input" maxlength="200" name="address" required/>
+        <label for="addr-input">Endereço</label>
+      </div>
+      <div>
+        <input type="text" id="city-input" maxlength="200" name="city" required/>
+        <label for="city-input">Cidade</label>
+      </div>
+      <div>
+        <select name="state" id="state-input" required>
+        </select>
+        <label for="state-input">Estado</label>
+      </div>
+      <div>
+        <input type="radio" id="radio_house" name="type" value="house"/>
+        <label for="radio_house">Casa</label>
+        <input type="radio" id="radio_apartament" name="type" value="apartament"/>
+        <label for="radio_apartament">Apartamento</label>
+      </div>
     </fieldset>
+    <fieldset>
+      <div>
+        <textarea name="resume" id="resume-input" cols="30" rows="10" maxlength="1000" required></textarea>
+        <label for="resume-input">Resumo do Curriculum</label>
+      </div>
+      <div>
+        <input type="text" name="job" id="job-input" maxlength="30" required>
+        <label for="job-input">Cargo</label>
+      </div>
+      <div>
+        <input type="text" name="jobdesc" id="jobdesc-input" maxlength="500" required>
+        <label for="jobdesc-input">Resumo do Cargo</label>
+      </div>
+      <div>
+        <input type="text" name="startat" id="start-input" maxlength="12" required>
+        <label for="start-input">Data de início</label>
+      </div>
+    </fieldset>
+    <div>
+      <button id="process-button">Processar</button>
+      <button id="clean-button">Limpar tudo</button>
+    </div>
   </form>
-
+  <div class="result"></div>
 </body>
+<script>
+  const stateInput = document.querySelector('#state-input');
+  const startInput = document.querySelector('#start-input');
+  const processButton = document.querySelector('#process-button');
+  const cleanButton = document.querySelector('#clean-button');
+  const stateList = [
+    ['Acre', 'AC'],
+    ['Alagoas', 'AL'],
+    ['Amapá', 'AP'],
+    ['Amazonas', 'AM'],
+    ['Bahia', 'BA'],
+    ['Ceará', 'CE'],
+    ['Distrito Federal', 'DF'],
+    ['Espírito Santo', 'ES'],
+    ['Goiás', 'GO'],
+    ['Maranhão', 'MA'],
+    ['Mato Grosso', 'MT'],
+    ['Mato Grosso do Sul', 'MS'],
+    ['Minas Gerais', 'MG'],
+    ['Pará', 'PA'],
+    ['Paraíba', 'PB'],
+    ['Paraná', 'PR'],
+    ['Pernambuco', 'PE'],
+    ['Piauí', 'PI'],
+    ['Rio de Janeiro', 'RJ'],
+    ['Rio Grande do Norte', 'RN'],
+    ['Rio Grande do Sul', 'RS'],
+    ['Rondônia', 'RO'],
+    ['Roraima', 'RR'],
+    ['Santa Catarina', 'SC'],
+    ['São Paulo', 'SP'],
+    ['Sergipe', 'SE'],
+    ['Tocantins', 'TO']
+  ];
+  
+  stateList.forEach((state) => {
+    const option = stateInput.appendChild(document.createElement('option'));
+    option.innerText = state[0];
+    option.value = state[1];
+  });
+
+  processButton.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    const inputs = document.querySelectorAll('input');
+    const result = document.querySelector('.result');
+    result.innerHTML = "";
+    inputs.forEach((input) => {
+      const p = document.createElement('p');
+      const desc = document.querySelector(`label[for=${input.id}]`);
+      result.appendChild(p).innerText = `${desc.innerText} : ${input.value}`;
+    });
+  });
+
+  cleanButton.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach((input) => {
+      input.value = "";
+    });
+  });
+
+  startInput.addEventListener('keyup', function (el) {
+    let v = el.target.value;
+    //if(v.match(/[^0-9][^\/]/)) el.target.value = '';
+    if (v.match(/^\d{2}$/) !== null) {
+      el.target.value = v + '/';
+    } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+      el.target.value = v + '/';
+    }
+  });
+</script>
 </html>
