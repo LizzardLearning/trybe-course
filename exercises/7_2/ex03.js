@@ -35,7 +35,7 @@ function listValues(target) {
 }
 
 function allLessons() {
-  let lessons = {lesson1, lesson2, lesson3};
+  const lessons = {lesson1, lesson2, lesson3};
   return Object.assign({}, lessons);
 }
 
@@ -52,9 +52,41 @@ function getValueByNumber(target, index) {
 }
 
 function verifyPair(target, key, value) {
-  let entries = Object.entries(target);
+  const entries = Object.entries(target);
   for(entry of entries) {
     if(entry[0] === key && entry[1] === value) return true;
   }
   return false;
+}
+
+/* BONUS */
+
+function countMathStudents() {
+  const lessons = allLessons();
+  let total = 0;
+  for (let l in lessons) {
+    if(lessons[l].materia === 'Matemática') {
+      total += lessons[l].numeroEstudantes;
+    }
+  }
+  return total;
+}
+
+function createReport(teacher) {
+  const lessons = allLessons();
+  const report = {
+    professor: teacher,
+    aulas: [],
+    estudantes: 0
+  };
+  for (let l in lessons) {
+    const lesson = lessons[l];
+    if (lesson.professor === teacher) {
+      if (!report.aulas.includes(lesson.materia)) {
+        report.aulas.push(lesson.materia);
+      }
+      report.estudantes += lesson.numeroEstudantes;
+    }
+  }
+  return report;
 }
