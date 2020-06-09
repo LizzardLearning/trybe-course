@@ -18,4 +18,4 @@ assert.notDeepEqual(myRemoveWithoutCopy([1, 2, 3, 4], 3), [1, 2, 3, 4]);
 const arr = [1, 2, 3, 4];
 assert.ok(myRemoveWithoutCopy(arr, 3), arr);
 
-//assert.deepEqual(myRemoveWithoutCopy([1, 2, 3, 4], 5), [1, 2, 3, 4]);
+assert.deepEqual(myRemoveWithoutCopy([1, 2, 3, 4], 5), [1, 2, 3, 4]);
