@@ -9,3 +9,5 @@ function sum(a, b) {
 }
 
 assert.deepEqual(sum(4, 5), 9);
+assert.deepEqual(sum(0,0), 0);
+assert.ok(sum(4, "5"))
