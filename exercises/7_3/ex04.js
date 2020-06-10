@@ -14,6 +14,7 @@ assert.deepEqual(myRemove([1, 2, 3, 4], 3), [1,2,4]);
 assert.notDeepEqual(myRemove([1, 2, 3, 4], 3), [1, 2, 3, 4]);
 
 const arr = [1, 2, 3, 4];
-assert.notEqual(myRemove(arr, 3), arr);
+myRemove(arr, 3);
+assert.deepEqual(arr, [1, 2, 3, 4]);
 
 assert.deepEqual(myRemove([1, 2, 3, 4], 5), [1, 2, 3, 4]);
