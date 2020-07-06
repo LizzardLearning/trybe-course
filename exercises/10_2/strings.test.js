@@ -1,8 +1,7 @@
 const strings = require('./strings');
 
 describe('Testando funcoes strings', () => {
-  jest.mock("./strings");
-  //afterEach(strings..mockReset);
+
   test('Retornando caixa baixa', () => {
     const mockToUpperCase = jest
       .spyOn(strings, 'toUpperCase')
@@ -12,6 +11,11 @@ describe('Testando funcoes strings', () => {
 
     expect(mockToUpperCase).toHaveBeenCalledTimes(1);
     expect(mockToUpperCase('LIZZARD')).toBe('lizzard');
+
+    //Ex.05
+    strings.toUpperCase.mockRestore();
+    expect(strings.toUpperCase('lizzard')).toBe('LIZZARD');
+  
   });
 
   test('Retornando só a primeira letra', () => {
