@@ -1,0 +1,39 @@
+.card, .card .image-container {
+  display: flex;
+  height: 128px;
+}
+
+.card {
+  margin: 16px;
+  border-radius: 16px;
+  background: rgb(60, 60, 90);
+  width: 330px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 72px;
+}
+
+.card .image-container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card .image-container .image-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 16px;
+  width: 80px;
+  height: 80px;
+}
+
+.card .info-container {
+  margin-top: 8px;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
