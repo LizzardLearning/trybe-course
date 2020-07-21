@@ -9,6 +9,7 @@
   background: rgb(60, 60, 90);
   width: 330px;
   overflow: hidden;
+  box-shadow: 5px 5px 20px rgb(60, 60, 90);
 }
 
 .card img {
