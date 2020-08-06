@@ -1,0 +1,14 @@
+.field-set {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 300px;
+}
+
+.input {
+  display: block;
+  margin: 5px auto;
+  padding: 0;
+}
